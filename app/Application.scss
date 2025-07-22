@@ -1,0 +1,228 @@
+/*
+ * SPDX-FileCopyrightText: 2023 Dirk van der Walt <dirkvanderwalt@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/*
+ *  This file can be used to set variables and supply global styling.  View specific 
+ *  styling should be located the view's corresponding scss file.
+ */
+$enable-font-awesome: dynamic(true);
+
+/* WIP Schedules */
+.plain-wrap .main{
+    margin      : 5px;
+    padding     : 5px;
+    cursor      : move;
+    font-size 	: 1.5em;
+	color		: #027534;
+    text-align  : left;
+    border-bottom : 5px solid #667078;
+}
+
+.plain-wrap .main:hover{
+    background: #c4cbd7;
+}
+
+.plain-wrap.x-item-selected .main {
+    background: #e1c8d4;
+}
+
+.plain-wrap .sub-reply{	
+    cursor      : move;
+    border-radius: 5px;
+    border      : 1px solid #3aacf2;
+    padding     : 5px; 
+    margin      : 5px;
+    text-align  : center; 
+    color       : #0677c7;
+}
+
+.plain-wrap .sub-reply:hover{
+    background: #f2f3f5;
+}
+
+.plain-wrap.x-item-selected .sub-reply {
+    background: #e1c8d4;
+}
+
+.plain-wrap .sub-check{	
+    cursor      : move;
+    border-radius: 5px;
+    border      : 1px solid #2fde5d;
+    padding     : 5px; 
+    margin      : 5px;
+    text-align  : center; 
+    color       : #0677c7;
+}
+
+.plain-wrap .sub-check:hover{
+    background: #ecf8ec;
+}
+
+.plain-wrap.x-item-selected .sub-check {
+    background: #e1c8d4;
+}
+
+
+/* END WIP Schedules */
+
+/*==== Template Column Related ==== */
+
+.item-main {
+	font-size:larger;
+	text-align:center;
+	color:#0567a3;
+}
+
+.grid-widgetcell-rd {
+	border-radius:5px;
+	border:1px solid #a3aeb8;
+	color:#0677c7;
+}
+
+.grid-tpl-item {
+	border-radius:5px;
+	border:1px solid #a3aeb8;
+	padding:2px;
+	margin:2px;
+	color:#0677c7;
+}
+
+/* container */
+.two-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* columns */
+.two-columns-grid > * {
+    padding:0.2rem;
+}
+
+.item-lbl {
+	color:#a2a3a3;
+	text-align:right;
+	font-size:small;
+}
+
+.item-value {
+	color:#0677c7;
+}
+
+.clr-grey {
+	color:#a2a3a3;
+}
+
+.clr-grey-dark {
+	color: #6c7275;
+}
+
+.clr-orange {
+	color:#db970d;
+}
+
+.clr-green {
+	color:#03a120;
+}
+
+.clr-red {
+    color:#e00404;
+}
+
+.fieldBlue {
+    background: #c5f5fd;
+    color: #4d4d4d;
+}
+
+.fieldTealWhite {
+    background: #008080;
+    color: #ffffff;
+}
+
+.fieldGreyWhite {
+    background: #767575;
+    color: #ffffff;
+}
+
+.fieldGreenWhite {
+    background: #1a9406;
+    color: #ffffff;
+}
+
+
+
+.gridMain {
+    color: #0b42b3;
+    font-size:16px;
+}
+
+.grpInfo {
+    color:grey;
+    font-size:smaller;
+    font-style:italic;
+    font-weight:lighter;
+}
+
+.grpNever {
+    color: #1383bd;
+    font-size:larger;  
+}
+
+.grpUp {
+    color: green;
+    font-size:larger;  
+}
+
+.grpDown {
+    color: red;
+    font-size:larger; 
+}
+
+
+/*==== END Template Column Related ==== */
+
+/*==== Detail Section ==== */
+.detail-section {
+	font-size:1.5em;
+	border-bottom:5px solid #667078;
+	color:#027534;
+	text-align:center;
+	padding-top:0.5em
+}
+
+.form-section {
+	font-size:1.5em;
+	border-bottom:5px solid #667078;
+	color:#027534;
+}
+
+
+@include panel-ui(
+    $ui: 'panel-blue',
+    $header-color: #2e5696,
+    $header-icon-color: #2e5696,
+    $header-background-color: #e0eaf9,
+    $border-color: #e0eaf9,
+    $tool-color: #1b587d,
+    $header-min-height-big: 20px,
+    $header-min-height:10px,
+    $background-color: transparent,  
+    $body-background-color:  #bac3d9,
+    $border-color: #2e5696
+)
+
+@include panel-ui(
+    $ui: 'panel-green',
+    $header-color: #0e3a24,
+    $header-icon-color: #0e3a24,
+    $header-background-color: #e0f9ed,
+    $border-color: #e0f9ed,
+    $tool-color: #174621,
+    $header-min-height-big: 20px,
+    $header-min-height:10px,
+    $background-color: transparent,   
+    $body-background-color: #a6d9c7,
+    $border-color: #0e3a24
+)
