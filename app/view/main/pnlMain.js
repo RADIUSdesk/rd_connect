@@ -10,6 +10,7 @@ Ext.define('RdConnect.view.main.pnlMain', {
     controller  : 'vcMain',
     requires	: [
         'RdConnect.view.mainPasspoint.cntMainPasspoint',
+        'RdConnect.view.mainPsk.cntMainPsk',
         'Ext.tab.Panel'
     ],
     
@@ -66,6 +67,11 @@ Ext.define('RdConnect.view.main.pnlMain', {
 		            	xtype	: 'cntMainPasspoint',
 		            	itemId	: 'mainPasspoint'              
 		            },
+		            {
+		            	title	: 'PSK',
+		            	xtype	: 'cntMainPsk',
+		            	itemId	: 'mainPsk'              
+		            }
 		        ],
 		        flex    : 1
 		    }
