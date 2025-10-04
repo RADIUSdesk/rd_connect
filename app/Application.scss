@@ -259,3 +259,99 @@ $enable-font-awesome: dynamic(true);
 }
 
 .x-selected .psk-card { box-shadow: 0 4px 10px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+
+.rd-custom-progressbar .x-progress-text {
+    font-size: 16px;   /* adjust as needed */
+    font-weight: 600;  /* optional */
+}
+
+.conn-info-card .detail-section{
+  font-weight:700;
+  color:#29465b;
+  border-bottom:1px solid rgba(0,0,0,0.12);
+  padding:6px 0 8px;
+  margin-bottom:6px;
+}
+
+.conn-info-card .ci-row{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dashed rgba(0,0,0,0.08);
+}
+.conn-info-card .ci-row:last-child{ border-bottom:none; }
+
+.conn-info-card .ci-ico{
+  width:18px; /* keeps icons aligned */
+  margin-top:2px;
+  color:#3c6cb7; /* your palette */
+}
+
+.conn-info-card .ci-body{ flex:1; min-width:0; }
+.conn-info-card .ci-primary{
+  font-weight:600;
+  color:#29465b;
+  line-height:1.25;
+}
+.conn-info-card .ci-secondary{
+  color:#5f6b75;
+  font-size:12px;
+}
+
+.conn-info-card .mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing:.2px;
+}
+
+/* Chips */
+.conn-info-card .chip{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:9999px;
+  font-size:11px;
+  line-height:16px;
+  border:1px solid rgba(0,0,0,0.08);
+  background:#eef2f6;
+}
+.conn-info-card .chip-green  { background:#e9f7ef; color:#167c2b; border-color:#cfeeda; }
+.conn-info-card .chip-blue   { background:#eaf3ff; color:#0d5db8; border-color:#d3e6ff; }
+.conn-info-card .chip-purple { background:#f1eaff; color:#5a35b5; border-color:#e2d6ff; }
+.conn-info-card .chip-muted  { background:#f3f4f6; color:#6b7280; border-color:#e5e7eb; }
+
+
+/* Usage rows */
+.conn-info-card .u-row{
+  display:flex; align-items:center; gap:10px;
+  padding:6px 0; border-bottom:1px dashed rgba(0,0,0,0.08);
+}
+.conn-info-card .u-row:last-child{ border-bottom:none; }
+
+.conn-info-card .u-ico{
+  width:18px; text-align:center; color:#3c6cb7;
+}
+.conn-info-card .u-ico-in  { color:#167c2b; }   /* IN (down) */
+.conn-info-card .u-ico-out { color:#0d5db8; }   /* OUT (up) */
+
+.conn-info-card .u-body{ flex:1; display:flex; justify-content:space-between; gap:12px; }
+.conn-info-card .u-label{ font-weight:600; color:#29465b; }
+.conn-info-card .u-value{ font-size:16px; color:#1f2937; }
+
+/* TOTAL row emphasis */
+.conn-info-card .u-total .u-label{ letter-spacing:.3px; }
+.conn-info-card .u-total .u-value{ font-weight:700; }
+
+/* Tiny stacked bar (IN vs OUT share) */
+.conn-info-card .u-stacked{
+  display:flex; height:8px; width:100%;
+  border-radius:9999px; overflow:hidden;
+  background:#eef2f6; margin:8px 0 6px;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.conn-info-card .u-stacked .u-in{
+  background:#cfeeda;   /* green tint for IN */
+}
+.conn-info-card .u-stacked .u-out{
+  background:#d3e6ff;   /* blue tint for OUT */
+}
