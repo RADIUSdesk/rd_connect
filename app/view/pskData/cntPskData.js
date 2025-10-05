@@ -4,17 +4,14 @@
 Ext.define('RdConnect.view.pskData.cntPskData', {
     extend      : 'Ext.Container',
     xtype       : 'cntPskData',
-    //controller  : 'vcPskDetail',
+    controller  : 'vcPskData',
     layout      : {
         type    : 'vbox',
         pack    : 'start',
         align   : 'stretch'
     },
-
     requires	: [
-       // 'RdConnect.view.pskDetail.vcPskDetail',
-        'RdConnect.view.pskDetail.frmPskChangePsk',
-        'Ext.field.Slider'
+       'RdConnect.view.pskData.vcPskData',
     ],
 	items   : [
         {

@@ -33,9 +33,9 @@ Ext.define('RdConnect.view.pskTraffic.cntPskTraffic', {
 						itemId	: 'lblInfo',
 						padding	: 5,
 						tpl	    : new Ext.XTemplate(
-							'<div style="color:#3e3f40;text-align: center;font-size:small">{timespan}',
-								'<div style="font-size: x-small;">{client_count} Clients</div>',
-								'<div style="font-size: x-small;">{proto_count} Protocols</div>',
+							'<div style="color:#3e3f40;text-align: left;font-size:small">{timespan}',
+								'<div style="text-align: left;font-size: x-small;">{client_count} Clients</div>',
+								'<div style="text-align: left;font-size: x-small;">{proto_count} Protocols</div>',
 							'</div>'
 						),
 						data	: {}
@@ -89,7 +89,21 @@ Ext.define('RdConnect.view.pskTraffic.cntPskTraffic', {
 			    mode: 'single'
 		    },   
             columns: [
-                { text: 'Mac',  dataIndex: 'mac', flex: 1},
+                {
+                    text     : 'Client',
+                    dataIndex: 'mac',
+                    flex     : 2,
+                    cell     : { encodeHtml: false }, // allow our HTML
+                    renderer : function (mac, record) {
+                        var alias = record.get('alias');
+                        var macHtml   = '<div class="cli-mac"><code>' + Ext.htmlEncode(mac) + '</code></div>';
+                        if (alias && String(alias).trim().length) {
+                            var aliasHtml = '<div class="cli-alias">' + Ext.htmlEncode(alias) + '</div>';
+                            return macHtml + aliasHtml;
+                        }
+                        return macHtml;
+                    }
+                },
                 { text: 'Data In',   dataIndex: 'data_in',  hidden: true, renderer: function(value){
                         return Ext.ux.bytesToHuman(value)              
                     } 
@@ -332,13 +346,13 @@ Ext.define('RdConnect.view.pskTraffic.cntPskTraffic', {
 					 iconCls	: 'x-fa fa-wifi',
 					 textAlign  : 'left',
 					 itemId		: 'btnInfo'
-				 },
+				 }/*,
 				 {
 					 text		: 'Just This Client',
 					 iconCls	: 'x-fa fa-filter',
 					 textAlign  : 'left',
 					 itemId		: 'btnFilter'
-				 }	
+				 }*/	
 			 ]
 		});     	
 	 	me.add(menu);	

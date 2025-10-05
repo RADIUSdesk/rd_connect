@@ -355,3 +355,7 @@ $enable-font-awesome: dynamic(true);
 .conn-info-card .u-stacked .u-out{
   background:#d3e6ff;   /* blue tint for OUT */
 }
+
+.cli-mac   { font-weight: 600; }
+.cli-alias { font-size: 11px; opacity: .7; line-height: 1.1; }
+

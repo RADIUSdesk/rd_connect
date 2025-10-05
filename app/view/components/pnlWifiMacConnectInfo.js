@@ -36,6 +36,10 @@ Ext.define('RdConnect.view.components.pnlWifiMacConnectInfo', {
             panel.refresh();
         }
     },
+    masked  : {
+	    xtype	: 'loadmask',
+	    message	: 'Loading....'
+    },
     initialize	: function (){
         const me = this;
         me.setTitle(me.mac);
@@ -261,6 +265,7 @@ Ext.define('RdConnect.view.components.pnlWifiMacConnectInfo', {
   	},
   	refresh : function(){
   	    var me = this;
+  	    me.setMasked(true);
   	    Ext.Ajax.request({
             url: me.getUrlConnectionInfoMac(),
             params: {
@@ -269,6 +274,7 @@ Ext.define('RdConnect.view.components.pnlWifiMacConnectInfo', {
             },
             method: 'GET',
             success: function(response){
+                me.setMasked(false);
                 var jsonData = Ext.JSON.decode(response.responseText);                
                 if(jsonData.success){    
                     me.down('#cntInfo').setData(jsonData.data);

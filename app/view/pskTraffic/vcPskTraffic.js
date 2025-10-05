@@ -41,7 +41,7 @@ Ext.define('RdConnect.view.pskTraffic.vcPskTraffic', {
     	//FIXME NOTE We have to manually add the event bindings for items in the ActionSheet when we add the parent container on the fly (//**)
     	me.getAsMenu().down('#btnAlias' ).on('tap', this.doAlias, this);//**
     	me.getAsMenu().down('#btnInfo' ).on('tap',  this.doInfo, this);//**
-    	me.getAsMenu().down('#btnFilter' ).on('tap',  this.doFilter, this);//**
+    	//me.getAsMenu().down('#btnFilter' ).on('tap',  this.doFilter, this);//**
     },
     show	: function(){
     	var me = this;   	
@@ -183,7 +183,6 @@ Ext.define('RdConnect.view.pskTraffic.vcPskTraffic', {
     spanChange	: function(a,value){
     	var me = this;
     	me.setSpan(value);
-    	console.log(me.getSpan());
         me.reload(); 	
     },
     trfPrtChange : function(a,value){
@@ -217,92 +216,26 @@ Ext.define('RdConnect.view.pskTraffic.vcPskTraffic', {
     	var me = this
     	me.getView().down('#asDate').hide();
     },
-    
+        
     onGridChildTap : function(a,sel){
     	var me 	= this;
-    	console.log(sel);
    		me.sel = sel;			
     	me.getAsMenu().show();   	   	  	 
-    },
-    
+    },    
     doAlias : function(){
     	var me = this;
     	me.getAsMenu().hide();
     	var w = Ext.widget('frmMacAction',{mac : me.sel.get('mac'), r: me.sel, ctrl : me });
     	w.show();
-    },
-    
+    },    
     doInfo : function(){
         const me = this;
-        console.log("Do Info");
         var w = Ext.widget('pnlWifiMacConnectInfo',{mac : me.sel.get('mac'), span : me.getSpan()  }); 
         w.show();    
-    },
-    
+    },  
     doFilter : function(){
         const me = this;
         console.log("Do Filter");   
-    },
-        
-    
-    info	: function(){
-    	var me = this;
-    	me.getAsMenu().hide();
-    	me.reloadMac('info');
-    	//var w = Ext.widget('pnlWifiMacConnectInfo',{mac : me.sel.get('mac'), r: me.sel, ctrl : me, mesh_id : me.getMeshId() });    
-    },
-    usage	: function(){
-    	var me = this;
-    	me.getAsMenu().hide();
-    	me.reloadMac('usage');   
-    },
-    reloadMac	: function(item_to_show){
-    	var me 		= this;  	
-    	var dd      = Ext.getApplication().getDashboardData();
-        var tz_id   = dd.user.timezone_id;      
-		var	t 		= 'mesh_entries';
-		var ssid_id = me.getView().down('cmbMeshViewSsids').getValue();
-        var node_id = false;
-        var mac		= me.sel.get('mac');
-        Ext.Ajax.request({
-            url: me.getUrlUsageForSsid(),
-            params: {
-                type        : t,
-                span        : me.getSpan(),
-                mesh_id     : me.getMeshId(),
-                timezone_id : tz_id,
-                mesh_entry_id : ssid_id,
-                node_id     : node_id,
-                mac         : mac
-            },
-            method: 'GET',
-            success: function(response){
-                var jsonData = Ext.JSON.decode(response.responseText);                
-                if(jsonData.success){
-                	var data = jsonData.data 
-                	data.totals.data_in     = Ext.ux.bytesToHuman(data.totals.data_in);
-        			data.totals.data_out    = Ext.ux.bytesToHuman(data.totals.data_out);
-        			data.totals.data_total  = Ext.ux.bytesToHuman(data.totals.data_total);
-        			var mac = me.sel.get('mac');
-        			if(me.sel.get('alias') !== ''){
-        				mac = me.sel.get('alias');
-        			}
-                    
-                   	if(item_to_show == 'info'){
-                 		var w = Ext.widget('pnlWifiMacConnectInfo',{mac : mac, bigData : data }); 
-                 		w.show(); 
-                   	}
-                   
-                   if(item_to_show == 'usage'){
-                   		var w = Ext.widget('pnlWifiMacUsageGraph',{mac : mac, bigData : data }); 
-                 		w.show();                
-                   }
-                   
-                }else{
+    }
 
-                  
-                }
-            }
-        }); 
-    }    
 });
