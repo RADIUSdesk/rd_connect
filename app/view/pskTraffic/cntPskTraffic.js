@@ -5,7 +5,6 @@ Ext.define('RdConnect.view.pskTraffic.cntPskTraffic', {
     extend      : 'Ext.Container',
     xtype       : 'cntPskTraffic',
     controller  : 'vcPskTraffic',
-   // layout	    : 'fit',
     layout      : {
         type    : 'vbox',
         pack    : 'start',

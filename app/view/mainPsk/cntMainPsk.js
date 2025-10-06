@@ -10,8 +10,8 @@ Ext.define('RdConnect.view.mainPsk.cntMainPsk', {
         'RdConnect.view.mainPsk.cntMainPskTiles',
         'RdConnect.view.mainPsk.vcMainPsk',
         'RdConnect.view.pskDetail.cntPskDetail',
-        //'RdConnect.view.pskTraffic.cntPskTraffic',
-        //'RdConnect.view.pskData.cntPskData'
+        'RdConnect.view.pskTraffic.cntPskTraffic',
+        'RdConnect.view.pskData.cntPskData'
     ],
     layout: {
 		type        : 'card',

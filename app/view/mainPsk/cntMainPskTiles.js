@@ -18,7 +18,7 @@ Ext.define('RdConnect.view.mainPsk.cntMainPskTiles', {
                 return [
                     { id: 0, name: 'PSK Details',      fa: 'list',          cmp: 'cntPskDetail' },
                     { id: 1, name: 'Traffic Stats',    fa: 'traffic-light', cmp: 'cntPskTraffic' },
-                    { id: 2, name: 'Data Stats',       fa: 'database',      cmp: 'cntPskData' }                  
+                    { id: 2, name: 'Usage Graphs',     fa: 'chart-bar',     cmp: 'cntPskData' }                  
                 ];
             })()
         },

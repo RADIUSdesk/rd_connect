@@ -230,6 +230,7 @@ Ext.define('RdConnect.view.pskTraffic.vcPskTraffic', {
     },    
     doInfo : function(){
         const me = this;
+        me.getAsMenu().hide();
         var w = Ext.widget('pnlWifiMacConnectInfo',{mac : me.sel.get('mac'), span : me.getSpan()  }); 
         w.show();    
     },  
